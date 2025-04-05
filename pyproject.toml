@@ -1,0 +1,56 @@
+[project]
+name = "fastapi-keycloak-app"
+version = "1.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "ruff",
+    "uvicorn",
+    "pydantic-settings",
+    "fastapi[standard]>=0.115.12",
+    "python-jose>=3.4.0",
+    "httpx>=0.28.1",
+    "requests>=2.32.3",
+    "itsdangerous>=2.2.0",
+    "redis>=5.2.1",
+    "python-keycloak>=5.3.1",
+    "pyjwt>=2.10.1",
+    "structlog>=25.2.0",
+]
+
+[tool.ruff]
+line-length = 119
+
+[tool.ruff.lint]
+select = [
+  "E", # pycodestyle errors
+  "W", # pycodestyle warnings
+  "F", # pyflakes
+  "I", # isort
+  "C", # flake8-comprehensions
+  "B", # flake8-bugbear
+  "UP", # pyupgrade
+  "ANN", # flake8-annotations
+
+]
+ignore = [
+  "E501", # line too long, handled by black
+  "B008", # do not perform function calls in argument defaults
+  "ANN002", # Missing type annotation for *args
+  "ANN003", # Missing type annotation for **kwargs
+  "ANN101", # Missing type annotation for self in method
+  "ANN102", # Missing type annotation for cls in classmethod
+  "ANN204", # Missing type annotation for special methods
+]
+exclude = [
+    ".git",
+    ".ruff_cache",
+    ".venv",
+    "__pypackages__",
+    "node_modules",
+    "venv",
+]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"

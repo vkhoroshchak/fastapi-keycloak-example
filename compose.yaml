@@ -1,0 +1,47 @@
+services:
+  backend:
+    build: .
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    environment:
+      - WATCHFILES_FORCE_POLLING=true
+    volumes:
+      - ./src:/app/src:z
+    command: uvicorn fastapi_keycloak_app.main:app --host 0.0.0.0 --port 8000 --reload --reload-dir /app/src --no-access-log
+    depends_on:
+      - keycloak
+      - redis
+
+  keycloak:
+    image: quay.io/keycloak/keycloak:26.1.4
+    environment:
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: admin
+      KC_DB: postgres
+      KC_DB_URL: jdbc:postgresql://postgres:5432/keycloak
+      KC_DB_USERNAME: keycloak
+      KC_DB_PASSWORD: keycloak
+    command: ["start-dev"]
+    ports:
+      - "8080:8080"
+  redis:
+    image: redislabs/redismod
+    ports:
+      - '6379:6379'
+  postgres:
+    image: postgres:17
+    environment:
+      POSTGRES_DB: keycloak
+      POSTGRES_USER: keycloak
+      POSTGRES_PASSWORD: keycloak
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+
+
+volumes:
+  postgres_data:
