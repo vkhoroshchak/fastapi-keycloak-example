@@ -78,7 +78,6 @@ class Settings(BaseSettings):
 
     # Database Configuration
     DATABASE_URL: str
-    SYNC_DATABASE_URL: str
 
     @property
     def is_production(self) -> bool:
@@ -86,13 +85,13 @@ class Settings(BaseSettings):
 
     @property
     def keycloak_base_url(self) -> str:
-        return f"{self.KEYCLOAK_SERVER_URL}/realms/{self.KEYCLOAK_REALM}"
+        return f"{self.KEYCLOAK_SERVER_URL}realms/{self.KEYCLOAK_REALM}"
 
     @property
     def keycloak_internal_base_url(self) -> str:
         # Use internal URL if provided, otherwise fall back to public URL
         url = self.KEYCLOAK_INTERNAL_URL or self.KEYCLOAK_SERVER_URL
-        return f"{str(url).rstrip('/')}/realms/{self.KEYCLOAK_REALM}"
+        return f"{url}realms/{self.KEYCLOAK_REALM}"
 
     @property
     def authorization_url(self) -> str:
