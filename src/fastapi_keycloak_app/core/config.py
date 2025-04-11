@@ -76,6 +76,10 @@ class Settings(BaseSettings):
     LOG_LEVEL: str = Field(default="INFO", validation_alias="LOG_LEVEL")
     ENVIRONMENT: str = Field(default="development", validation_alias="ENVIRONMENT")
 
+    # Database Configuration
+    DATABASE_URL: str
+    SYNC_DATABASE_URL: str
+
     @property
     def is_production(self) -> bool:
         return self.ENVIRONMENT.lower() == "production"

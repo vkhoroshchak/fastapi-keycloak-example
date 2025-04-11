@@ -17,6 +17,10 @@ dependencies = [
     "python-keycloak>=5.3.1",
     "pyjwt>=2.10.1",
     "structlog>=25.2.0",
+    "sqlalchemy[asyncio]>=2.0.40",
+    "asyncpg>=0.30.0",
+    "alembic>=1.15.2",
+    "psycopg2-binary>=2.9.10",
 ]
 
 [tool.ruff]
@@ -39,8 +43,6 @@ ignore = [
   "B008", # do not perform function calls in argument defaults
   "ANN002", # Missing type annotation for *args
   "ANN003", # Missing type annotation for **kwargs
-  "ANN101", # Missing type annotation for self in method
-  "ANN102", # Missing type annotation for cls in classmethod
   "ANN204", # Missing type annotation for special methods
 ]
 exclude = [
