@@ -10,9 +10,9 @@ from jwt import PyJWK, PyJWKClientError
 from keycloak.exceptions import KeycloakError
 from redis.exceptions import RedisError
 
-from fastapi_keycloak_app.core.clients import jwks_client, keycloak_client, redis_client
-from fastapi_keycloak_app.core.config import settings
-from src.fastapi_keycloak_app.core.logging import Logger, get_logger
+from app.core.clients import jwks_client, keycloak_client, redis_client
+from app.core.config import settings
+from src.app.core.logging import Logger, get_logger
 
 logger: Logger = get_logger(__name__)
 

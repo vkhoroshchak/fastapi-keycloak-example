@@ -4,8 +4,8 @@ from jwt import PyJWKClient
 from keycloak import KeycloakOpenID
 from redis import asyncio as aioredis
 
-from fastapi_keycloak_app.core.config import settings
-from src.fastapi_keycloak_app.core.logging import Logger, get_logger
+from app.core.config import settings
+from src.app.core.logging import Logger, get_logger
 
 logger: Logger = get_logger(__name__)
 

@@ -7,11 +7,11 @@ from fastapi.responses import JSONResponse
 from keycloak.exceptions import KeycloakError
 from redis.exceptions import RedisError
 
-from fastapi_keycloak_app.auth.schemas import RefreshRequest, RevokeRequest
-from fastapi_keycloak_app.core.clients import get_keycloak_openid, redis_client
-from fastapi_keycloak_app.core.config import settings
-from fastapi_keycloak_app.core.security import generate_cache_key
-from src.fastapi_keycloak_app.core.logging import Logger, get_logger
+from app.auth.schemas import RefreshRequest, RevokeRequest
+from app.core.clients import get_keycloak_openid, redis_client
+from app.core.config import settings
+from app.core.security import generate_cache_key
+from src.app.core.logging import Logger, get_logger
 
 logger: Logger = get_logger(__name__)
 

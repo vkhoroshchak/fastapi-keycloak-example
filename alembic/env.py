@@ -14,9 +14,9 @@ load_dotenv()
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../src")))
 
-from fastapi_keycloak_app.core.config import settings
-from fastapi_keycloak_app.users.models import User
-from fastapi_keycloak_app.core.database import Base
+from app.core.config import settings
+from app.users.models import User
+from app.core.database import Base
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.

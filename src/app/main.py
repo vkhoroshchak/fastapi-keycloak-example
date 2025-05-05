@@ -9,10 +9,10 @@ from fastapi.responses import JSONResponse
 from starlette.middleware.base import BaseHTTPMiddleware, RequestResponseEndpoint
 from starlette.middleware.sessions import SessionMiddleware
 
-from fastapi_keycloak_app.auth.routers import router as auth_router
-from fastapi_keycloak_app.core.config import settings
-from fastapi_keycloak_app.users.routers import router as user_router
-from src.fastapi_keycloak_app.core.logging import Logger, configure_logging, generate_correlation_id, get_logger
+from app.auth.routers import router as auth_router
+from app.core.config import settings
+from app.users.routers import router as user_router
+from src.app.core.logging import Logger, configure_logging, generate_correlation_id, get_logger
 
 configure_logging()
 

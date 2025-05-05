@@ -2,7 +2,7 @@ from sqlalchemy import Boolean, Column, DateTime, Integer, String
 from sqlalchemy.sql import func
 from sqlalchemy.types import UUID as SQLAlchemyUUID
 
-from fastapi_keycloak_app.core.database import Base
+from app.core.database import Base
 
 
 class User(Base):

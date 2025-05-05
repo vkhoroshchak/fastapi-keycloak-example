@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Depends
 
-from fastapi_keycloak_app.core.config import settings
-from fastapi_keycloak_app.core.security import verify_token
+from app.core.config import settings
+from app.core.security import verify_token
 
 router = APIRouter()
 

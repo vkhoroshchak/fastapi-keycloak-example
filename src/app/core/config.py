@@ -4,7 +4,7 @@ from functools import lru_cache
 from pydantic import Field, HttpUrl
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
-from src.fastapi_keycloak_app.core.logging import Logger, get_logger
+from src.app.core.logging import Logger, get_logger
 
 logger: Logger = get_logger(__name__)
 
